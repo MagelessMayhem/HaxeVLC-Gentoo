@@ -1,8 +1,8 @@
 #include <mutex>
 #include <iostream>
 #include <string>
-#include <StdInt.h>
-#include <windows.h> 
+#include <stdint.h>
+#include <X11/X.h> 
 
 using std::string;
 using namespace std;
@@ -23,10 +23,11 @@ LibVLC::LibVLC(void)
 		"--no-video-title-show",
 		"--text-renderer", "dummy",
 		"--quiet",
-		//"--no-xlib", //no xlib if linux
-		//"--vout", "vmem"
-		//"--avcodec-hw=dxva2",
-		//"--verbose=2"
+		#if PLATFORM_LINUX
+
+"--no-xlib", //no xlib if linux
+#endif
+		
 	};	
 	
 	int Argc = sizeof(Args) / sizeof(*Args);
