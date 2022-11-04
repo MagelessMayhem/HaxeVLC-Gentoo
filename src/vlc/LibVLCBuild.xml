@@ -12,4 +12,9 @@
 		<lib name='${CPP_DIR}/lib/libvlccore.lib' if='windows'/>
 	</target>
 	
+	<target id='haxe' tool='linker' if='linux'>
+		<lib name='${CPP_DIR}/lib/linux/libvlc.so' if='linux'/>
+		<lib name='${CPP_DIR}/lib/linux/libvlccore.so.7' if='linux'/>
+	</target>
+	
 </xml>
